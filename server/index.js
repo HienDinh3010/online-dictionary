@@ -120,7 +120,7 @@ app.post('/generate-text', async (req, res) => {
 app.post('/generate-audio', async (req, res) => {
   const { input, voice } = req.body;  // Get input text and selected voice from the request
 
-  if (!input || !voice) {
+  if (!input) {
     return res.status(400).json({ error: 'Input text and voice are required.' });
   }
 
@@ -128,7 +128,7 @@ app.post('/generate-audio', async (req, res) => {
     // Call OpenAI's TTS API
     const mp3 = await openai.audio.speech.create({
       model: 'tts-1',         // OpenAI's TTS model
-      voice: voice,           // Pass in the selected voice
+      voice: 'nova',           // Pass in the selected voice
       input: input            // The text to convert to speech
     });
 

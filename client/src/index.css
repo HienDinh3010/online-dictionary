@@ -56,7 +56,7 @@ code {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+  max-width: 60%;
   margin: 20px auto;
 }
 
@@ -139,7 +139,7 @@ p.error {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+  max-width: 60%;
   margin: 20px auto;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
@@ -209,11 +209,39 @@ p.error {
 
 /* Styling for loading and error messages */
 .popular-searches p.loading,
-.popular-searches p.error {
+.popular-searches p.error .text-generation{
   font-size: 18px;
   color: #555;
 }
 
-.popular-searches p.error {
+.popular-searches p.error .text-generation{
   color: red;
+}
+
+.pronunciation .text-generation{
+  margin-top: 20px;
+  border-top: 1px solid #df3ca6;
+  padding-top: 20px;
+}
+
+.pronunciation .text-generation h4 {
+  font-size: 18px;
+  color: #333;
+}
+
+.pronunciation .text-generation p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.pronunciation button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.pronunciation button:hover {
+  color: #df3ca6;
 }
