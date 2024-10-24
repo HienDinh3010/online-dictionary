@@ -33,13 +33,13 @@ const PopularSearchesComponent = () => {
     };
   }, [refetch]);
 
-  if (loading) return <p>Loading popular searches...</p>;
-  if (error) return <p>Error fetching popular searches: {error.message}</p>;
+  if (loading) return <p className="loading">Loading popular searches...</p>;
+  if (error) return <p className="error">Error fetching popular searches: {error.message}</p>;
 
   return (
     <div className="popular-searches">
       <h3>Popular Searches</h3>
-      <p>Next refresh in: {secondsLeft} seconds</p>
+      <p>Next refresh in: <span> {secondsLeft} </span> seconds</p>
       <ol>
         {data.getPopularSearches.map((word, index) => (
           <li key={index}>{word}</li>

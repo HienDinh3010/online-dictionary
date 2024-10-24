@@ -25,20 +25,22 @@ const SearchComponent = () => {
 
   return (
     <div className="search-container">
-      <label>Term:</label>
-      <input
-        type="text"
-        value={term}
-        onChange={(e) => setTerm(e.target.value)}
-        placeholder="Enter a word..."
-      />
-      <button onClick={handleSearch}>Lookup</button>
+      <div className="search-box">
+        <label>Term:</label>
+        <input
+          type="text"
+          value={term}
+          onChange={(e) => setTerm(e.target.value)}
+          placeholder="Enter a word..."
+        />
+        <button onClick={handleSearch}>Lookup</button>
+      </div>
 
       {/* Display loading message */}
-      {loading && <p>Loading...</p>}
+      {loading && <p className="loading">Loading...</p>}
 
       {/* Display error message if the search fails */}
-      {error && <p>Error fetching word: {error.message}</p>}
+      {error && <p className="error">Error fetching word: {error.message}</p>}
 
       {/* Display search results */}
       {data && (
@@ -48,7 +50,7 @@ const SearchComponent = () => {
             data.search.map((definition, index) => (
               <div key={index}>
                 <p>
-                  <strong>{definition.wordtype}:</strong> {definition.definition}
+                  <strong>{index + 1}({definition.wordtype})::</strong> {definition.definition}
                 </p>
               </div>
             ))
