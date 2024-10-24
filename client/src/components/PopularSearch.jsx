@@ -40,11 +40,21 @@ const PopularSearchesComponent = () => {
     <div className="popular-searches">
       <h3>Popular Searches</h3>
       <p>Next refresh in: <span> {secondsLeft} </span> seconds</p>
+      <div className="columns">
+      {/* Left Column: Indexes 0 to 4 */}
       <ol>
-        {data.getPopularSearches.map((word, index) => (
+        {data.getPopularSearches.slice(0, 5).map((word, index) => (
           <li key={index}>{word}</li>
         ))}
       </ol>
+
+      {/* Right Column: Indexes 5 to 9 */}
+      <ol start={6}>
+        {data.getPopularSearches.slice(5).map((word, index) => (
+          <li key={index + 5}>{word}</li>
+        ))}
+      </ol>
+    </div>
     </div>
   );
 };
