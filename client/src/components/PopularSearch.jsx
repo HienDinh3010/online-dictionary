@@ -33,28 +33,29 @@ const PopularSearchesComponent = () => {
     };
   }, [refetch]);
 
-  if (loading) return <p className="loading">Loading popular searches...</p>;
-  if (error) return <p className="error">Error fetching popular searches: {error.message}</p>;
-
   return (
     <div className="popular-searches">
       <h3>Popular Searches</h3>
+      {/* Display loading and error messages here */}
+      {loading && <p className="loading">Loading popular searches...</p>}
+      {error && <p className="error">Error fetching popular searches: {error.message}</p>}
+      
       <p>Next refresh in: <span> {secondsLeft} </span> seconds</p>
       <div className="columns">
-      {/* Left Column: Indexes 0 to 4 */}
-      <ol>
-        {data.getPopularSearches.slice(0, 5).map((word, index) => (
-          <li key={index}>{word}</li>
-        ))}
-      </ol>
+        {/* Left Column: Indexes 0 to 4 */}
+        <ol>
+          {data?.getPopularSearches?.slice(0, 5).map((word, index) => (
+            <li key={index}>{word}</li>
+          ))}
+        </ol>
 
-      {/* Right Column: Indexes 5 to 9 */}
-      <ol start={6}>
-        {data.getPopularSearches.slice(5).map((word, index) => (
-          <li key={index + 5}>{word}</li>
-        ))}
-      </ol>
-    </div>
+        {/* Right Column: Indexes 5 to 9 */}
+        <ol start={6}>
+          {data?.getPopularSearches?.slice(5).map((word, index) => (
+            <li key={index + 5}>{word}</li>
+          ))}
+        </ol>
+      </div>
     </div>
   );
 };

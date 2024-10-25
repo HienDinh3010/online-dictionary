@@ -68,7 +68,7 @@ const SearchComponent = () => {
     setLoadingPrompt(true);
     setErrorPrompt('');
     try {
-      const response = await axios.post('http://localhost:4000/generate-text', { prompt: `Where does the ${word} come from?` });
+      const response = await axios.post('http://localhost:4000/generate-text', { prompt: `Where does the word ${word} come from?` });
       setResult(response.data.text);
     } catch (error) {
       console.error('Error fetching text generation:', error);
@@ -149,7 +149,7 @@ const SearchComponent = () => {
             </button>
             <audio ref={audioRef} style={{ display: 'none' }} /> 
           </p>
-          <p>{term}</p>
+          {/* <p>{term}</p> */}
         </div>
       )}
 
